@@ -30,7 +30,6 @@ void androidIconTools::mainRun(std::string image_path)
     }
     else
     {
-        //ios android
         getIniInfoByProfile();
         
         if(ini_info_prefix_list_.size()<=0)
@@ -39,8 +38,8 @@ void androidIconTools::mainRun(std::string image_path)
             writeIniInfoToProfile();
         }
         
-        
-        std::string out_dir_path=StringTools::getDirForPath(image_path)+"icon/";
+        std::string fname_path=FileTools::getFnameForPath(image_path);
+        std::string out_dir_path=StringTools::getDirForPath(image_path)+fname_path+"icon/";
         for (auto it : ini_info_prefix_list_)
         {
             std::string out_mid_dir_path="android/"+it.dir_;

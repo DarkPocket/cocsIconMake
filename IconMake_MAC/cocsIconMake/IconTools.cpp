@@ -39,8 +39,6 @@ void IconTools::mainRun()
     android_icon_tool_.mainRun(image_path);
     ios_icon_toos_.mainRun(image_path);
     
-    //pause
-    char temp[255];
-    std::cin >> temp;
+
 }
 

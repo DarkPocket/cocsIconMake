@@ -37,8 +37,8 @@ void iosIconTools::mainRun(std::string image_path)
             getIniInfoByDefault();
             writeIniInfoToProfile();
         }
-        
-        std::string out_dir_path=StringTools::getDirForPath(image_path)+"icon/";
+        std::string fname_path=FileTools::getFnameForPath(image_path);
+        std::string out_dir_path=StringTools::getDirForPath(image_path)+fname_path+"icon/";
         for (auto it : ini_info_prefix_list_)
         {
             std::string out_mid_fname_path="/"+it.fname_+"-"+std::to_string(it.fsize_) +it.format_;
@@ -51,7 +51,6 @@ void iosIconTools::mainRun(std::string image_path)
         }
         std::cout << "ios 转化完成  共 "<< ini_info_prefix_list_.size()<<" 张" << std::endl;
         std::cout << " 输出至 "<<out_dir_path<< std::endl;
-        
     }
 }
 
@@ -83,6 +82,6 @@ void iosIconTools::getIniInfoByDefault()
         iniInfo.fsize_=size_list_default[i];
         ini_info_prefix_list_.push_back(iniInfo);
     }
-  
+    
 }
 

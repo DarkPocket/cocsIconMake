@@ -25,6 +25,8 @@ namespace FileTools
 {
     int makeDir(std::string dir_path);
     std::string getDirForPath(const std::string &path);
+    
+    std::string getFnameForPath(const std::string &path);
 }
 
 #endif /* FileTools_hpp */

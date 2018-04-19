@@ -21,7 +21,7 @@ namespace FileTools
         int break_flag=0;
         do {
             std::string sub_dir_path=getDirForPath(recursiver_dir_path);
-           sub_dir_path= sub_dir_path.substr(0,sub_dir_path.size()-1);
+            sub_dir_path= sub_dir_path.substr(0,sub_dir_path.size()-1);
             /*
              R_OK 只判断是否有读权限
              W_OK 只判断是否有写权限
@@ -38,10 +38,10 @@ namespace FileTools
                 break;
             }
         } while (break_flag!=0);
-
+        
         for (int i= static_cast<int>(temp_dir_list.size()-1); i>=0;--i)
         {
-           if(mkdir(temp_dir_list[i].c_str(),0755)!=0)
+            if(mkdir(temp_dir_list[i].c_str(),0755)!=0)
             {
                 std::cout<<"error  mkdir  "<<temp_dir_list[i] <<"\r\n";
             }
@@ -60,5 +60,17 @@ namespace FileTools
             dir_path=path;
         }
         return dir_path;
+    }
+    std::string getFnameForPath(const std::string &path)
+    {
+        std::string fname_path="";
+        size_t start_pos,end_pos;
+        start_pos=path.rfind("/");
+        end_pos=path.rfind(".");
+        if( (start_pos!=std::string::npos)&&(end_pos!=std::string::npos))
+        {
+            fname_path=path.substr(start_pos+1,end_pos-start_pos-1);
+        }
+        return fname_path;
     }
 }
