@@ -21,14 +21,15 @@ public:
     
     const std::string kDefaultProfileName = "android_icon_list.profile";
     const std::string kDefaultImageName = "icon.jpg";
-    const std::string kDefaultPrefixName = "Icon";
-    const std::string kDefaultSuffixName = "png";
+    const std::string kDefaultDirPrefixName = "drawable";
+    const std::string kDefaultPrefixName = "ic_launcher";
+    const std::string kDefaultSuffixName = ".png";
 private:
     virtual void getIniInfoByDefault();
     virtual std::string getDefaultProfileName();
     
+    std::string image_path_dir_;
     
-
 };
 
 

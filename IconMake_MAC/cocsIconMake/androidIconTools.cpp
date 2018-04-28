@@ -11,7 +11,7 @@
 
 std::string androidIconTools::getDefaultProfileName()
 {
-    return kDefaultProfileName;
+    return image_path_dir_+kDefaultProfileName;
 }
 
 void androidIconTools::mainRun(std::string image_path)
@@ -30,6 +30,7 @@ void androidIconTools::mainRun(std::string image_path)
     }
     else
     {
+        image_path_dir_=StringTools::getDirForPath(image_path);
         getIniInfoByProfile();
         
         if(ini_info_prefix_list_.size()<=0)
@@ -39,7 +40,7 @@ void androidIconTools::mainRun(std::string image_path)
         }
         
         std::string fname_path=FileTools::getFnameForPath(image_path);
-        std::string out_dir_path=StringTools::getDirForPath(image_path)+fname_path+"icon/";
+        std::string out_dir_path=image_path_dir_ +fname_path+"icon/";
         for (auto it : ini_info_prefix_list_)
         {
             std::string out_mid_dir_path="android/"+it.dir_;
@@ -53,7 +54,7 @@ void androidIconTools::mainRun(std::string image_path)
         }
         std::cout << "安卓 转化完成  共 "<< ini_info_prefix_list_.size()<<" 张" << std::endl;
         std::cout << " 输出至 "<<out_dir_path<< std::endl;
-
+        
     }
 }
 
@@ -62,35 +63,50 @@ void androidIconTools::getIniInfoByDefault()
     ini_info_prefix_list_.clear();
     {
         IniInfoPrefix iniInfo;
-        iniInfo.dir_="drawable-hdpi";
-        iniInfo.fname_="Icon";
-        iniInfo.format_=".png";
+        iniInfo.dir_=kDefaultDirPrefixName+"-hdpi";
+        iniInfo.fname_=kDefaultPrefixName;
+        iniInfo.format_=kDefaultSuffixName;
         iniInfo.fsize_=72;
         ini_info_prefix_list_.push_back(iniInfo);
     }
     {
         IniInfoPrefix iniInfo;
-        iniInfo.dir_="drawable-ldpi";
-        iniInfo.fname_="Icon";
-        iniInfo.format_=".png";
+        iniInfo.dir_=kDefaultDirPrefixName+"-ldpi";
+        iniInfo.fname_=kDefaultPrefixName;
+        iniInfo.format_=kDefaultSuffixName;
         iniInfo.fsize_=36;
         ini_info_prefix_list_.push_back(iniInfo);
     }
     {
         IniInfoPrefix iniInfo;
-        iniInfo.dir_="drawable-mdpi";
-        iniInfo.fname_="Icon";
-        iniInfo.format_=".png";
+        iniInfo.dir_=kDefaultDirPrefixName+"-mdpi";
+        iniInfo.fname_=kDefaultPrefixName;
+        iniInfo.format_=kDefaultSuffixName;
         iniInfo.fsize_=48;
         ini_info_prefix_list_.push_back(iniInfo);
     }
     {
         IniInfoPrefix iniInfo;
-        iniInfo.dir_="drawable-xhdpi";
-        iniInfo.fname_="Icon";
-        iniInfo.format_=".png";
+        iniInfo.dir_=kDefaultDirPrefixName+"-xhdpi";
+        iniInfo.fname_=kDefaultPrefixName;
+        iniInfo.format_=kDefaultSuffixName;
         iniInfo.fsize_=96;
         ini_info_prefix_list_.push_back(iniInfo);
     }
-    
+    {
+        IniInfoPrefix iniInfo;
+        iniInfo.dir_=kDefaultDirPrefixName+"-xxhdpi";
+        iniInfo.fname_=kDefaultPrefixName;
+        iniInfo.format_=kDefaultSuffixName;
+        iniInfo.fsize_=144;
+        ini_info_prefix_list_.push_back(iniInfo);
+    }
+    {
+        IniInfoPrefix iniInfo;
+        iniInfo.dir_=kDefaultDirPrefixName;
+        iniInfo.fname_=kDefaultPrefixName;
+        iniInfo.format_=kDefaultSuffixName;
+        iniInfo.fsize_=196;
+        ini_info_prefix_list_.push_back(iniInfo);
+    }
 }

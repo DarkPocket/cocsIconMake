@@ -30,15 +30,15 @@ public:
     const std::string kDefaultProfileName = "ios_icon_list.profile";
     const std::string kDefaultImageName = "icon.jpg";
     const std::string kDefaultPrefixName = "Icon";
-    const std::string kDefaultSuffixName = "png";
+    const std::string kDefaultSuffixName = ".png";
 private:
     virtual void getIniInfoByDefault();
     virtual std::string getDefaultProfileName();
-    
+    std::string image_path_dir_;
     
     
 };
- 
+
 
 
 #endif /* iosIconTools_hpp */
