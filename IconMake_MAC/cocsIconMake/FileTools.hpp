@@ -27,6 +27,10 @@ namespace FileTools
     std::string getDirForPath(const std::string &path);
     
     std::string getFnameForPath(const std::string &path);
+    
+    std::string getExtForPath(const std::string &path);
+    
+    bool test();
 }
 
 #endif /* FileTools_hpp */

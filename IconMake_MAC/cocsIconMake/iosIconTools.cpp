@@ -58,19 +58,21 @@ void iosIconTools::mainRun(std::string image_path)
 void iosIconTools::getIniInfoByDefault()
 {
     std::vector<int> size_list_default;
-    size_list_default.push_back(29);
-    size_list_default.push_back(40);
-    size_list_default.push_back(50);
-    size_list_default.push_back(57);
-    size_list_default.push_back(58);
-    size_list_default.push_back(72);
+    //    size_list_default.push_back(29);
+    //    size_list_default.push_back(40);
+    //    size_list_default.push_back(50);
+    //    size_list_default.push_back(57);
+    //    size_list_default.push_back(58);
+    //    size_list_default.push_back(72);
     size_list_default.push_back(76);
-    size_list_default.push_back(80);
-    size_list_default.push_back(100);
-    size_list_default.push_back(114);
+    //    size_list_default.push_back(80);
+    //    size_list_default.push_back(100);
+    //    size_list_default.push_back(114);
     size_list_default.push_back(120);
-    size_list_default.push_back(144);
+    //    size_list_default.push_back(144);
     size_list_default.push_back(152);
+    size_list_default.push_back(167);
+    size_list_default.push_back(180);
     size_list_default.push_back(1024);
     
     ini_info_prefix_list_.clear();

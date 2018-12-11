@@ -17,8 +17,8 @@
 void mainRun()
 {
 
-    IconTools icon_tool;
-    icon_tool.mainRun();
+        IconTools icon_tool;
+        icon_tool.mainRun();
     
 }
 

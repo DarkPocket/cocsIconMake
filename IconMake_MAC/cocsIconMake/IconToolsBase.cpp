@@ -12,7 +12,7 @@
 
 IconToolsBase::IconToolsBase()
 {
-    
+    is_png_=false;
 }
 
 
@@ -22,10 +22,21 @@ IconToolsBase::~IconToolsBase()
 
 bool IconToolsBase::inputSrcimage(std::string path)
 {
-    image_src_ = imread(path);
+    std::string ext=FileTools::getExtForPath(path);
+    if(ext=="png")
+    {
+        //png
+        image_src_ = imread(path,CV_LOAD_IMAGE_UNCHANGED);
+        is_png_=true;
+        std::cout << " input png "  <<std::endl;
+    }else{
+        image_src_ = imread(path);
+        is_png_=false;
+    }
+    
     if (!image_src_.data)
     {
-        std::cout << "呵呵，读取srcImage错误~！ 检查path " << path << "\r\n";
+        std::cout << "呵呵，读取srcImage错误~！ 检查path " << path <<std::endl;
         return false;
     }
     return true;

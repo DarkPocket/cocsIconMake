@@ -39,6 +39,7 @@ public:
     
     void outIconToFile(std::string out_name, int out_width, int out_hight);
     
+    bool is_png_;
     //每个文件的 配置信息
     std::vector<IniInfoPrefix> ini_info_prefix_list_;
     Mat image_src_;

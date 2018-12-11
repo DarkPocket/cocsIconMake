@@ -73,4 +73,27 @@ namespace FileTools
         }
         return fname_path;
     }
+    std::string getExtForPath(const std::string &path)
+    {
+        std::string ext="";
+        size_t start_pos,end_pos;
+        start_pos=path.rfind(".");
+        end_pos=path.length();
+        if( (start_pos!=std::string::npos)&&(end_pos!=std::string::npos))
+        {
+            ext=path.substr(start_pos+1,end_pos-start_pos-1);
+        }
+        return ext;
+    }
+    
+    bool test()
+    {
+        std::string image_path ;
+        //        std::cin >> image_path;
+        ///Users/7cgames/Documents/ProgramFiles/cocos2d-x-3.16/projects3.16/opencvProject/IconMake_MAC/icon.png
+        std::string ext=FileTools::getExtForPath(image_path);
+        std::cout << "file ext:" << ext<<std::endl;
+        
+        return true;
+    }
 }
